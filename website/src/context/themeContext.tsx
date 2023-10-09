@@ -3,6 +3,13 @@ import { cyan, purple } from "@mui/material/colors";
 import { createContext, useEffect, useState } from "react";
 import Loading from "../pages/loading";
 
+const hexToRGBA = (hex: string, alpha: number) => {
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+};
+
 const getDesignTokens = (mode: "dark" | "light") => ({
     palette: {
         mode,
@@ -26,16 +33,26 @@ const getDesignTokens = (mode: "dark" | "light") => ({
         //         ...purple,
         //     }),
         // },
+        text: {
+            ...(mode === "light" && {
+                primary: "#2c2c2c",
+            }),
+            ...(mode === "dark" && {
+                primary: "#f2f2f2",
+            }),
+        },
         ...(mode === "light" && {
             background: {
-                default: "#f2f2f2",
+                default: "#f6f6f6",
                 paper: "#f2f2f2",
+                semi: hexToRGBA("#f6f6f6", 0.5),
             },
         }),
         ...(mode === "dark" && {
             background: {
-                default: "212121",
+                default: "#212121",
                 paper: "#424242",
+                semi: hexToRGBA("#212121", 0.5),
             },
         }),
     },
