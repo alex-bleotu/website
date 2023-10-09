@@ -37,19 +37,19 @@ const Description = () => {
                         display="flex"
                         flexDirection="column"
                         justifyContent="center"
-                        p={4}>
+                        p={5}>
                         <Box display="flex">
                             <Typography
                                 fontSize="3rem"
                                 fontWeight="600"
                                 color={theme.palette.text.primary}
                                 mr={2}>
-                                John
+                                Alex
                             </Typography>
                             <Typography
                                 fontSize="3rem"
                                 color={theme.palette.text.primary}>
-                                Doe
+                                Bleotu
                             </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" mt={1}>
@@ -131,31 +131,31 @@ const Description = () => {
                         display="flex"
                         flexDirection="column"
                         justifyContent="center"
-                        p={3.6}>
+                        p={5}>
                         <Box display="flex">
                             <Typography
                                 fontSize="2.5rem"
                                 fontWeight="600"
                                 color={theme.palette.text.primary}
                                 mr={2}>
-                                John
+                                Alex
                             </Typography>
                             <Typography
                                 fontSize="2.5rem"
                                 color={theme.palette.text.primary}>
-                                Doe
+                                Bleotu
                             </Typography>
                         </Box>
-                        <Box display="flex" alignItems="center" mt={1}>
+                        <Box display="flex" mt={1} alignItems="center">
                             <Typography
-                                fontSize="1.25rem"
+                                fontSize="1.15rem"
                                 color={theme.palette.text.primary}
                                 mr={1}>
                                 {/* {"<>"}  */}
                                 I'm a
                             </Typography>
                             <Box
-                                fontSize="1.25rem"
+                                fontSize="1.15rem"
                                 fontWeight={600}
                                 color={theme.palette.text.primary}>
                                 <Typewriter
@@ -182,7 +182,7 @@ const Description = () => {
                         </Box>
                         <Typography
                             mt={2}
-                            fontSize="1rem"
+                            fontSize="0.9rem"
                             color={theme.palette.text.primary}>
                             Hery there! I'm a young full-stack developer based
                             in Brasov, Romania. I'm a student, but I also enjoy

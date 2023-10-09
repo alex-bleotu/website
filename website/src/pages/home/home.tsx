@@ -12,7 +12,7 @@ const Home = () => {
             <NavBar />
             <Box>
                 <Description />
-                <Line width="80%" />
+                <Line width="85%" />
                 <About />
             </Box>
         </Box>

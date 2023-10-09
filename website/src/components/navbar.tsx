@@ -61,13 +61,13 @@ const NavBar = () => {
                             fontSize={isMediumScreen ? "1.4rem" : "1.25rem"}
                             fontWeight={600}
                             mr={1}>
-                            John
+                            Alex
                         </Typography>
                         <Typography
                             color="inherit"
                             fontFamily="revert"
                             fontSize={isMediumScreen ? "1.4rem" : "1.25rem"}>
-                            Doe
+                            Bleotu
                         </Typography>
                     </Box>
                     <Box ml="auto">
