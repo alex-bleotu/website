@@ -14,6 +14,7 @@ const Home = () => {
                 <Description />
                 <Line width="85%" />
                 <About />
+                <Line width="85%" />
             </Box>
         </Box>
     );

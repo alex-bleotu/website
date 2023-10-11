@@ -83,11 +83,6 @@ const NavBar = () => {
                                 <Button
                                     color="inherit"
                                     sx={{ mr: 2, fontWeight: 600 }}>
-                                    Resume
-                                </Button>
-                                <Button
-                                    color="inherit"
-                                    sx={{ mr: 2, fontWeight: 600 }}>
                                     Portofolio
                                 </Button>
                                 <Button

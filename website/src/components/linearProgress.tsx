@@ -39,7 +39,7 @@ const LinearProgress = ({
             </Grid>
             <Grid item xs={8.5} sm={9} lg={7.5} xl={9} mt={1}>
                 <Typography
-                    fontSize={isSmallScreen ? "1rem" : "1.25rem"}
+                    fontSize={isSmallScreen ? "1rem" : "1.2rem"}
                     fontWeight={600}
                     color={theme.palette.text.primary}>
                     {name}

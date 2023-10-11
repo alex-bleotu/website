@@ -227,7 +227,7 @@ const About = () => {
                             return newValue;
                         });
                     },
-                    isSmallScreen ? 35 : 10
+                    isSmallScreen ? 35 : 5
                 );
             } else {
                 clearInterval(interval);
@@ -423,7 +423,7 @@ const About = () => {
                                 <LinearProgress
                                     icon="react"
                                     progress={bar1Progress}
-                                    name="React & React Native"
+                                    name="React"
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
@@ -444,7 +444,7 @@ const About = () => {
                                 <LinearProgress
                                     icon="unity"
                                     progress={bar4Progress}
-                                    name="Unity Game Engine"
+                                    name="Unity"
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>

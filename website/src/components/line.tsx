@@ -7,7 +7,12 @@ const Line = ({ width, color }: { width: string; color?: string }) => {
     const { mode } = useContext(ThemeContext);
 
     return (
-        <Box display="flex" justifyContent="center" alignItems="center" mb={8}>
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            mb={8}
+            mt={4}>
             <Box
                 borderRadius={5}
                 height={2}
