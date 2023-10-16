@@ -1,6 +1,7 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { useContext } from "react";
+import CountUp from "react-countup";
 import { ThemeContext } from "../context/themeContext";
 
 const AboutItem = ({
@@ -50,12 +51,13 @@ const AboutItem = ({
                     sx={{ marginTop: 2 }}>
                     {text}
                 </Typography>
-                <Typography
-                    fontSize={"2.5rem"}
-                    sx={{ marginTop: 1 }}
-                    color={theme.palette.text.primary}>
-                    {number}
-                </Typography>
+                <CountUp
+                    enableScrollSpy
+                    scrollSpyOnce
+                    style={{ fontSize: "2.5rem", marginTop: 1 }}
+                    end={number}
+                    duration={2}
+                />
             </Box>
         </Box>
     );

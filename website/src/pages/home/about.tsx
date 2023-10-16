@@ -11,7 +11,6 @@ import {
     useMediaQuery,
     useTheme,
 } from "@mui/material";
-import { useEffect, useState } from "react";
 import AboutItem from "../../components/aboutItem";
 import CircularProgress from "../../components/circleProgress";
 import LinearProgress from "../../components/linearProgress";
@@ -21,351 +20,6 @@ const About = () => {
     const isSmallScreen = useMediaQuery("(max-width:450px)");
     const isMediumScreen = useMediaQuery("(max-width:1050px)");
     const isLargeScreen = useMediaQuery("(min-width:1200px)");
-
-    const [romanianProgress, setRomanianProgress] = useState(0);
-    const [englishProgress, setEnglishProgress] = useState(0);
-    const [germanProgress, setGermanProgress] = useState(0);
-    const romanianMaxProgress = 100;
-    const englishMaxProgress = 95;
-    const germanMaxProgress = 40;
-
-    const [bar1Progress, setBar1Progress] = useState(0);
-    const [bar2Progress, setBar2Progress] = useState(0);
-    const [bar3Progress, setBar3Progress] = useState(0);
-    const [bar4Progress, setBar4Progress] = useState(0);
-    const [bar5Progress, setBar5Progress] = useState(0);
-    const [bar6Progress, setBar6Progress] = useState(0);
-    const bar1MaxProgress = 95;
-    const bar2MaxProgress = 87;
-    const bar3MaxProgress = 85;
-    const bar4MaxProgress = 90;
-    const bar5MaxProgress = 89;
-    const bar6MaxProgress = 85;
-
-    const [card1Progress, setCard1Progress] = useState(0);
-    const [card2Progress, setCard2Progress] = useState(0);
-    const [card3Progress, setCard3Progress] = useState(0);
-    const [card4Progress, setCard4Progress] = useState(0);
-    const card1MaxProgress = 11;
-    const card2MaxProgress = 395;
-    const card3MaxProgress = 5;
-    const card4MaxProgress = 35;
-
-    const triggerYSmallScreen = 700;
-    const triggerYLargeScreen = 600;
-
-    const triggerYSmallScreen2 = 875;
-    const triggerYLargeScreen2 = 400;
-
-    const triggerYSmallScreen3 = 1400;
-    const triggerYLargeScreen3 = 875;
-
-    useEffect(() => {
-        let interval: any;
-
-        const handleScroll = () => {
-            const yCoordinate = window.scrollY;
-
-            console.log(romanianProgress);
-            console.log(englishProgress);
-            console.log(germanProgress);
-
-            const triggerY = isSmallScreen
-                ? triggerYSmallScreen
-                : triggerYLargeScreen;
-            if (
-                yCoordinate >= triggerY &&
-                romanianProgress !== romanianMaxProgress &&
-                englishProgress !== englishMaxProgress &&
-                germanProgress !== germanMaxProgress
-            ) {
-                interval = setInterval(
-                    () => {
-                        if (
-                            romanianProgress === romanianMaxProgress &&
-                            englishProgress === englishMaxProgress &&
-                            germanProgress === germanMaxProgress
-                        ) {
-                            console.log("4444444444444444444444");
-                        }
-
-                        setRomanianProgress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === romanianMaxProgress) {
-                                if (
-                                    germanProgress === germanMaxProgress &&
-                                    englishProgress === englishMaxProgress
-                                )
-                                    clearInterval(interval);
-                                return romanianMaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setEnglishProgress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === englishMaxProgress) {
-                                if (
-                                    romanianProgress === romanianMaxProgress &&
-                                    germanProgress === germanMaxProgress
-                                )
-                                    clearInterval(interval);
-                                return englishMaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setGermanProgress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === germanMaxProgress) {
-                                if (
-                                    romanianProgress === romanianMaxProgress &&
-                                    englishProgress === englishMaxProgress
-                                )
-                                    clearInterval(interval);
-                                return germanMaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                    },
-                    isSmallScreen ? 100 : 15
-                );
-            } else {
-                clearInterval(interval);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            clearInterval(interval);
-        };
-    }, []);
-
-    useEffect(() => {
-        let interval: any;
-
-        const handleScroll = () => {
-            const yCoordinate = window.scrollY;
-
-            const triggerY = isSmallScreen
-                ? triggerYSmallScreen2
-                : triggerYLargeScreen2;
-            if (yCoordinate >= triggerY) {
-                interval = setInterval(
-                    () => {
-                        setBar1Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === bar1MaxProgress) {
-                                if (
-                                    bar2Progress === bar2MaxProgress &&
-                                    bar3Progress === bar3MaxProgress &&
-                                    bar4Progress === bar4MaxProgress &&
-                                    bar5Progress === bar5MaxProgress &&
-                                    bar6Progress === bar6MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return bar1MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setBar2Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === bar2MaxProgress) {
-                                if (
-                                    bar1Progress === bar1MaxProgress &&
-                                    bar3Progress === bar3MaxProgress &&
-                                    bar4Progress === bar4MaxProgress &&
-                                    bar5Progress === bar5MaxProgress &&
-                                    bar6Progress === bar6MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return bar2MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setBar3Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === bar3MaxProgress) {
-                                if (
-                                    bar1Progress === bar1MaxProgress &&
-                                    bar2Progress === bar2MaxProgress &&
-                                    bar4Progress === bar4MaxProgress &&
-                                    bar5Progress === bar5MaxProgress &&
-                                    bar6Progress === bar6MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return bar3MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setBar4Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === bar4MaxProgress) {
-                                if (
-                                    bar1Progress === bar1MaxProgress &&
-                                    bar2Progress === bar2MaxProgress &&
-                                    bar3Progress === bar3MaxProgress &&
-                                    bar5Progress === bar5MaxProgress &&
-                                    bar6Progress === bar6MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return bar4MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setBar5Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === bar5MaxProgress) {
-                                if (
-                                    bar1Progress === bar1MaxProgress &&
-                                    bar2Progress === bar2MaxProgress &&
-                                    bar3Progress === bar3MaxProgress &&
-                                    bar4Progress === bar4MaxProgress &&
-                                    bar6Progress === bar6MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return bar5MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setBar6Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === bar6MaxProgress) {
-                                if (
-                                    bar1Progress === bar1MaxProgress &&
-                                    bar2Progress === bar2MaxProgress &&
-                                    bar3Progress === bar3MaxProgress &&
-                                    bar4Progress === bar4MaxProgress &&
-                                    bar5Progress === bar5MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return bar6MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                    },
-                    isSmallScreen ? 35 : 5
-                );
-            } else {
-                clearInterval(interval);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            clearInterval(interval);
-        };
-    }, []);
-
-    useEffect(() => {
-        let interval: any;
-
-        const handleScroll = () => {
-            const yCoordinate = window.scrollY;
-
-            const triggerY = isSmallScreen
-                ? triggerYSmallScreen3
-                : triggerYLargeScreen3;
-            if (yCoordinate >= triggerY) {
-                interval = setInterval(
-                    () => {
-                        setCard1Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === card1MaxProgress) {
-                                if (
-                                    card2Progress === card2MaxProgress &&
-                                    card3Progress === card3MaxProgress &&
-                                    card4Progress === card4MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return card1MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setCard2Progress((oldValue) => {
-                            const newValue = oldValue + 3;
-
-                            if (oldValue >= card2MaxProgress) {
-                                setCard2Progress(card2MaxProgress);
-                                if (
-                                    card1Progress === card1MaxProgress &&
-                                    card3Progress === card3MaxProgress &&
-                                    card4Progress === card4MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return card2MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setCard3Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue === card3MaxProgress) {
-                                if (
-                                    card1Progress === card1MaxProgress &&
-                                    card2Progress === card2MaxProgress &&
-                                    card4Progress === card4MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return card3MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                        setCard4Progress((oldValue) => {
-                            const newValue = oldValue + 1;
-
-                            if (oldValue >= card4MaxProgress) {
-                                setCard4Progress(card4MaxProgress);
-                                if (
-                                    card1Progress === card1MaxProgress &&
-                                    card2Progress === card2MaxProgress &&
-                                    card3Progress === card3MaxProgress
-                                )
-                                    clearInterval(interval);
-                                return card4MaxProgress;
-                            }
-
-                            return newValue;
-                        });
-                    },
-                    isSmallScreen ? 100 : 60
-                );
-            } else {
-                clearInterval(interval);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            clearInterval(interval);
-        };
-    }, []);
 
     return (
         <Box
@@ -485,7 +139,8 @@ const About = () => {
                                         flexDirection="column"
                                         alignItems="center">
                                         <CircularProgress
-                                            progress={romanianProgress}
+                                            progress={100}
+                                            delay={0}
                                         />
                                         <Typography
                                             textAlign="center"
@@ -510,7 +165,8 @@ const About = () => {
                                         flexDirection="column"
                                         alignItems="center">
                                         <CircularProgress
-                                            progress={englishProgress}
+                                            progress={95}
+                                            delay={500}
                                         />
                                         <Typography
                                             textAlign="center"
@@ -534,7 +190,8 @@ const About = () => {
                                         flexDirection="column"
                                         alignItems="center">
                                         <CircularProgress
-                                            progress={germanProgress}
+                                            progress={45}
+                                            delay={800}
                                         />
                                         <Typography
                                             textAlign="center"
@@ -560,6 +217,7 @@ const About = () => {
                         <Typography
                             fontSize="1.7rem"
                             mb={2}
+                            ml={isLargeScreen ? 2 : 0}
                             color={theme.palette.text.primary}>
                             My Skills
                         </Typography>
@@ -568,43 +226,49 @@ const About = () => {
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="react"
-                                    progress={bar1Progress}
+                                    progress={95}
                                     name="React"
+                                    delay={0}
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="bootstrap"
-                                    progress={bar2Progress}
+                                    progress={87}
                                     name="Bootstrap"
+                                    delay={0}
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="spring"
-                                    progress={bar3Progress}
+                                    progress={85}
                                     name="Spring Boot"
+                                    delay={150}
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="node"
-                                    progress={bar4Progress}
+                                    progress={90}
                                     name="Node JS"
+                                    delay={150}
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="figma"
-                                    progress={bar5Progress}
+                                    progress={81}
                                     name="Figma"
+                                    delay={300}
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="photoshop"
-                                    progress={bar6Progress}
+                                    progress={85}
                                     name="Photoshop"
+                                    delay={300}
                                 />
                             </Grid>
                         </Grid>
@@ -615,7 +279,7 @@ const About = () => {
                             fontSize="1.7rem"
                             mb={2}
                             color={theme.palette.text.primary}>
-                            Facts
+                            Fun Facts
                         </Typography>
                         <Grid
                             container
@@ -629,7 +293,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Projects Completed"
-                                    number={card1Progress}
+                                    number={11}
                                     icon={<FactCheckIcon fontSize="large" />}
                                 />
                             </Grid>
@@ -641,7 +305,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Worked Hours"
-                                    number={card2Progress}
+                                    number={425}
                                     icon={<WatchIcon fontSize="large" />}
                                 />
                             </Grid>
@@ -653,7 +317,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Awards Won"
-                                    number={card3Progress}
+                                    number={5}
                                     icon={<EmojiEventsIcon fontSize="large" />}
                                 />
                             </Grid>
@@ -665,7 +329,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Sleepless Nights"
-                                    number={card4Progress}
+                                    number={47}
                                     icon={<HotelIcon fontSize="large" />}
                                 />
                             </Grid>

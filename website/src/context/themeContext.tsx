@@ -23,16 +23,6 @@ const getDesignTokens = (mode: "dark" | "light") => ({
                 ...purple,
             }),
         },
-        // secondary: {
-        //     ...(mode === "light" && {
-        //         main: purple[200],
-        //         ...purple,
-        //     }),
-        //     ...(mode === "dark" && {
-        //         main: purple[200],
-        //         ...purple,
-        //     }),
-        // },
         text: {
             ...(mode === "light" && {
                 primary: "#2c2c2c",
@@ -44,7 +34,7 @@ const getDesignTokens = (mode: "dark" | "light") => ({
         ...(mode === "light" && {
             background: {
                 default: "#f6f6f6",
-                paper: "#f2f2f2",
+                paper: "#eaeaea",
                 semi: hexToRGBA("#f6f6f6", 0.5),
             },
         }),

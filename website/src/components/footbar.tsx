@@ -78,8 +78,8 @@ const Footbar = () => {
                                 }>
                                 <Grid
                                     item
-                                    lg={6}
-                                    md={6}
+                                    lg={7}
+                                    md={7}
                                     xs={12}
                                     display="flex"
                                     justifyContent="center">
@@ -87,8 +87,8 @@ const Footbar = () => {
                                 </Grid>
                                 <Grid
                                     item
-                                    lg={6}
-                                    md={6}
+                                    lg={5}
+                                    md={5}
                                     xs={12}
                                     display="flex"
                                     justifyContent="center"
