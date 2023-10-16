@@ -15,7 +15,7 @@ const getDesignTokens = (mode: "dark" | "light") => ({
         mode,
         primary: {
             ...(mode === "light" && {
-                main: cyan[400],
+                main: cyan[600],
                 ...purple,
             }),
             ...(mode === "dark" && {
@@ -51,7 +51,7 @@ const getDesignTokens = (mode: "dark" | "light") => ({
         ...(mode === "dark" && {
             background: {
                 default: "#212121",
-                paper: "#424242",
+                paper: "#323232",
                 semi: hexToRGBA("#212121", 0.5),
             },
         }),

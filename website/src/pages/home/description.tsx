@@ -10,7 +10,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Description = () => {
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery("(max-width:650px)");
+    const isSmallScreen = useMediaQuery("(max-width:725px)");
 
     return (
         <Box
@@ -104,8 +104,17 @@ const Description = () => {
                                     borderRadius: 15,
                                     fontWeight: 600,
                                     borderWidth: 2,
-                                    px: 2.5,
-                                    py: 2,
+                                    transition:
+                                        "transform 0.3s, box-shadow 0.3s",
+                                    "&:hover": {
+                                        border: "2px solid",
+                                        transform:
+                                            "scale(1.01) translateY(-2px)",
+                                        boxShadow:
+                                            "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                    },
+                                    px: 2,
+                                    py: 1.5,
                                     mt: 3,
                                     ml: -1,
                                 }}>

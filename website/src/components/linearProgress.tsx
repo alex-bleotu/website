@@ -27,17 +27,27 @@ const LinearProgress = ({
             alignItems="center"
             py={2}
             pr={isSmallScreen ? 0 : 4}>
-            <Grid item xs={3.5} sm={3} lg={4.5} xl={3}>
+            <Grid item xs={3.5} sm={3} lg={4.5} xl={3.2}>
                 <Box>
                     <Box
                         component="img"
                         height={isSmallScreen ? 50 : 65}
-                        sx={{ aspectRatio: 1 }}
+                        sx={{
+                            aspectRatio: 1,
+                            ":hover": {
+                                transition: "transform 0.3s, box-shadow 0.3s",
+                                "&:hover": {
+                                    transform: "scale(1.01) translateY(-2px)",
+                                    boxShadow:
+                                        "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                },
+                            },
+                        }}
                         src={"./icons/" + icon + ".png"}
                     />
                 </Box>
             </Grid>
-            <Grid item xs={8.5} sm={9} lg={7.5} xl={9} mt={1}>
+            <Grid item xs={8.5} sm={9} lg={7.5} xl={8.8} mt={1}>
                 <Typography
                     fontSize={isSmallScreen ? "1rem" : "1.2rem"}
                     fontWeight={600}

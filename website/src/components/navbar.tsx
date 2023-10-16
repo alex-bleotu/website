@@ -26,6 +26,16 @@ const NavBar = () => {
         };
     }, []);
 
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        const scroll =
+            section?.offsetTop === undefined ? 0 : section?.offsetTop - 140;
+        window.scrollTo({
+            top: scroll,
+            behavior: "smooth",
+        });
+    };
+
     return (
         <Box position="fixed" width="100%" zIndex={5} top={0}>
             <Box
@@ -51,10 +61,24 @@ const NavBar = () => {
                             "background-color 0.5s ease, border-radius 0.5s ease",
                     }}
                     elevation={isScrolled ? 3 : 0}>
-                    <Box
-                        display="flex"
-                        alignItems="center"
-                        ml={!isSmallScreen ? 2 : 0}>
+                    <Button
+                        onClick={() => {
+                            scrollToSection("description");
+                        }}
+                        color="inherit"
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            ml: !isSmallScreen ? 1 : -2,
+                            borderRadius: 20,
+                            px: !isSmallScreen ? 3 : 2,
+                            py: isSmallScreen ? 0 : 1.5,
+                            transition: "transform 0.3s, box-shadow 0.3s",
+                            "&:hover": {
+                                transform: "scale(1.01) translateY(-2px)",
+                                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                            },
+                        }}>
                         <Typography
                             color="inherit"
                             fontFamily="revert"
@@ -69,7 +93,7 @@ const NavBar = () => {
                             fontSize={isMediumScreen ? "1.4rem" : "1.25rem"}>
                             Bleotu
                         </Typography>
-                    </Box>
+                    </Button>
                     <Box ml="auto">
                         {isSmallScreen && <MenuButton />}
                         {isLargeScreen && (
@@ -77,17 +101,64 @@ const NavBar = () => {
                                 <ThemeButton />
                                 <Button
                                     color="inherit"
-                                    sx={{ mr: 2, fontWeight: 600 }}>
+                                    onClick={() => {
+                                        scrollToSection("about");
+                                    }}
+                                    sx={{
+                                        fontWeight: 600,
+                                        borderRadius: 20,
+                                        px: 2.5,
+                                        py: 1.5,
+                                        transition:
+                                            "transform 0.3s, box-shadow 0.3s",
+                                        "&:hover": {
+                                            transform:
+                                                "scale(1.01) translateY(-2px)",
+                                            boxShadow:
+                                                "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                        },
+                                    }}>
                                     About
                                 </Button>
                                 <Button
                                     color="inherit"
-                                    sx={{ mr: 2, fontWeight: 600 }}>
+                                    sx={{
+                                        fontWeight: 600,
+                                        borderRadius: 20,
+                                        px: 2.5,
+                                        py: 1.5,
+                                        mx: 1,
+                                        transition:
+                                            "transform 0.3s, box-shadow 0.3s",
+                                        "&:hover": {
+                                            transform:
+                                                "scale(1.01) translateY(-2px)",
+                                            boxShadow:
+                                                "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                        },
+                                    }}>
                                     Portofolio
                                 </Button>
                                 <Button
                                     color="inherit"
-                                    sx={{ mr: 2, fontWeight: 600 }}>
+                                    onClick={() => {
+                                        scrollToSection("contact");
+                                    }}
+                                    sx={{
+                                        fontWeight: 600,
+                                        borderRadius: 20,
+                                        px: 2.5,
+                                        py: 1.5,
+                                        mr: 1,
+                                        transition:
+                                            "transform 0.3s, box-shadow 0.3s",
+                                        "&:hover": {
+                                            transform:
+                                                "scale(1.01) translateY(-2px)",
+                                            boxShadow:
+                                                "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                        },
+                                    }}>
                                     Contact
                                 </Button>
                             </>
@@ -96,10 +167,25 @@ const NavBar = () => {
                             <Button
                                 variant="outlined"
                                 color="primary"
+                                onClick={() => {
+                                    const link = document.createElement("a");
+                                    link.href = "/cv.pdf";
+                                    link.download = "cv.pdf";
+                                    link.click();
+                                }}
                                 sx={{
                                     borderRadius: 15,
                                     fontWeight: 600,
-                                    borderWidth: 2,
+                                    border: "2px solid",
+                                    transition:
+                                        "transform 0.3s, box-shadow 0.3s",
+                                    "&:hover": {
+                                        border: "2px solid",
+                                        transform:
+                                            "scale(1.01) translateY(-2px)",
+                                        boxShadow:
+                                            "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                    },
                                     px: 2.5,
                                     py: 2,
                                 }}>

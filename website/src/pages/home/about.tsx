@@ -1,4 +1,8 @@
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import HotelIcon from "@mui/icons-material/Hotel";
+import WatchIcon from "@mui/icons-material/Watch";
 import {
     Box,
     Button,
@@ -8,12 +12,14 @@ import {
     useTheme,
 } from "@mui/material";
 import { useEffect, useState } from "react";
+import AboutItem from "../../components/aboutItem";
 import CircularProgress from "../../components/circleProgress";
 import LinearProgress from "../../components/linearProgress";
 
 const About = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery("(max-width:450px)");
+    const isMediumScreen = useMediaQuery("(max-width:1050px)");
     const isLargeScreen = useMediaQuery("(min-width:1200px)");
 
     const [romanianProgress, setRomanianProgress] = useState(0);
@@ -33,8 +39,17 @@ const About = () => {
     const bar2MaxProgress = 87;
     const bar3MaxProgress = 85;
     const bar4MaxProgress = 90;
-    const bar5MaxProgress = 90;
+    const bar5MaxProgress = 89;
     const bar6MaxProgress = 85;
+
+    const [card1Progress, setCard1Progress] = useState(0);
+    const [card2Progress, setCard2Progress] = useState(0);
+    const [card3Progress, setCard3Progress] = useState(0);
+    const [card4Progress, setCard4Progress] = useState(0);
+    const card1MaxProgress = 11;
+    const card2MaxProgress = 395;
+    const card3MaxProgress = 5;
+    const card4MaxProgress = 35;
 
     const triggerYSmallScreen = 700;
     const triggerYLargeScreen = 600;
@@ -42,18 +57,38 @@ const About = () => {
     const triggerYSmallScreen2 = 875;
     const triggerYLargeScreen2 = 400;
 
+    const triggerYSmallScreen3 = 1400;
+    const triggerYLargeScreen3 = 875;
+
     useEffect(() => {
         let interval: any;
 
         const handleScroll = () => {
             const yCoordinate = window.scrollY;
 
+            console.log(romanianProgress);
+            console.log(englishProgress);
+            console.log(germanProgress);
+
             const triggerY = isSmallScreen
                 ? triggerYSmallScreen
                 : triggerYLargeScreen;
-            if (yCoordinate >= triggerY) {
+            if (
+                yCoordinate >= triggerY &&
+                romanianProgress !== romanianMaxProgress &&
+                englishProgress !== englishMaxProgress &&
+                germanProgress !== germanMaxProgress
+            ) {
                 interval = setInterval(
                     () => {
+                        if (
+                            romanianProgress === romanianMaxProgress &&
+                            englishProgress === englishMaxProgress &&
+                            germanProgress === germanMaxProgress
+                        ) {
+                            console.log("4444444444444444444444");
+                        }
+
                         setRomanianProgress((oldValue) => {
                             const newValue = oldValue + 1;
 
@@ -242,6 +277,96 @@ const About = () => {
         };
     }, []);
 
+    useEffect(() => {
+        let interval: any;
+
+        const handleScroll = () => {
+            const yCoordinate = window.scrollY;
+
+            const triggerY = isSmallScreen
+                ? triggerYSmallScreen3
+                : triggerYLargeScreen3;
+            if (yCoordinate >= triggerY) {
+                interval = setInterval(
+                    () => {
+                        setCard1Progress((oldValue) => {
+                            const newValue = oldValue + 1;
+
+                            if (oldValue === card1MaxProgress) {
+                                if (
+                                    card2Progress === card2MaxProgress &&
+                                    card3Progress === card3MaxProgress &&
+                                    card4Progress === card4MaxProgress
+                                )
+                                    clearInterval(interval);
+                                return card1MaxProgress;
+                            }
+
+                            return newValue;
+                        });
+                        setCard2Progress((oldValue) => {
+                            const newValue = oldValue + 3;
+
+                            if (oldValue >= card2MaxProgress) {
+                                setCard2Progress(card2MaxProgress);
+                                if (
+                                    card1Progress === card1MaxProgress &&
+                                    card3Progress === card3MaxProgress &&
+                                    card4Progress === card4MaxProgress
+                                )
+                                    clearInterval(interval);
+                                return card2MaxProgress;
+                            }
+
+                            return newValue;
+                        });
+                        setCard3Progress((oldValue) => {
+                            const newValue = oldValue + 1;
+
+                            if (oldValue === card3MaxProgress) {
+                                if (
+                                    card1Progress === card1MaxProgress &&
+                                    card2Progress === card2MaxProgress &&
+                                    card4Progress === card4MaxProgress
+                                )
+                                    clearInterval(interval);
+                                return card3MaxProgress;
+                            }
+
+                            return newValue;
+                        });
+                        setCard4Progress((oldValue) => {
+                            const newValue = oldValue + 1;
+
+                            if (oldValue >= card4MaxProgress) {
+                                setCard4Progress(card4MaxProgress);
+                                if (
+                                    card1Progress === card1MaxProgress &&
+                                    card2Progress === card2MaxProgress &&
+                                    card3Progress === card3MaxProgress
+                                )
+                                    clearInterval(interval);
+                                return card4MaxProgress;
+                            }
+
+                            return newValue;
+                        });
+                    },
+                    isSmallScreen ? 100 : 60
+                );
+            } else {
+                clearInterval(interval);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            clearInterval(interval);
+        };
+    }, []);
+
     return (
         <Box
             height="100%"
@@ -258,14 +383,19 @@ const About = () => {
                 alignItems="center"
                 flexDirection="column">
                 <Typography
-                    fontSize="3rem"
+                    fontSize="2.5rem"
                     fontWeight="600"
                     color={theme.palette.text.primary}
                     mr={2}>
                     About Me
                 </Typography>
 
-                <Grid container width={isSmallScreen ? "95%" : "80%"} mt={2}>
+                <Grid
+                    container
+                    width={
+                        isSmallScreen ? "100%" : isMediumScreen ? "85%" : "80%"
+                    }
+                    mt={2}>
                     <Grid item xs={12} md={5.5} lg={5} p={5}>
                         <Box>
                             <Typography
@@ -306,6 +436,15 @@ const About = () => {
                                     borderRadius: 15,
                                     fontWeight: 600,
                                     borderWidth: 2,
+                                    transition:
+                                        "transform 0.3s, box-shadow 0.3s",
+                                    "&:hover": {
+                                        border: "2px solid",
+                                        transform:
+                                            "scale(1.01) translateY(-2px)",
+                                        boxShadow:
+                                            "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                    },
                                     px: 2,
                                     py: 1.5,
                                     mt: 2,
@@ -410,7 +549,14 @@ const About = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6.5} lg={7} p={5} height="100%">
+                    <Grid
+                        item
+                        xs={12}
+                        md={6.5}
+                        lg={7}
+                        p={5}
+                        height="100%"
+                        mt={isSmallScreen ? -4 : 0}>
                         <Typography
                             fontSize="1.7rem"
                             mb={2}
@@ -428,37 +574,99 @@ const About = () => {
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
-                                    icon="spring"
+                                    icon="bootstrap"
                                     progress={bar2Progress}
+                                    name="Bootstrap"
+                                />
+                            </Grid>
+                            <Grid item xs={12} lg={6}>
+                                <LinearProgress
+                                    icon="spring"
+                                    progress={bar3Progress}
                                     name="Spring Boot"
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="node"
-                                    progress={bar3Progress}
+                                    progress={bar4Progress}
                                     name="Node JS"
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
-                                    icon="unity"
-                                    progress={bar4Progress}
-                                    name="Unity"
+                                    icon="figma"
+                                    progress={bar5Progress}
+                                    name="Figma"
                                 />
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="photoshop"
-                                    progress={bar5Progress}
+                                    progress={bar6Progress}
                                     name="Photoshop"
                                 />
                             </Grid>
-                            <Grid item xs={12} lg={6}>
-                                <LinearProgress
-                                    icon="fusion"
-                                    progress={bar6Progress}
-                                    name="Fusion 360"
+                        </Grid>
+                    </Grid>
+
+                    <Grid item xs={12} px={5} py={3}>
+                        <Typography
+                            fontSize="1.7rem"
+                            mb={2}
+                            color={theme.palette.text.primary}>
+                            Facts
+                        </Typography>
+                        <Grid
+                            container
+                            width={isSmallScreen ? "100%" : "101%"}
+                            ml={isSmallScreen ? 0 : -2}>
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={3}
+                                color={theme.palette.primary.main}>
+                                <AboutItem
+                                    text="Projects Completed"
+                                    number={card1Progress}
+                                    icon={<FactCheckIcon fontSize="large" />}
+                                />
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={3}
+                                color={theme.palette.primary.main}>
+                                <AboutItem
+                                    text="Worked Hours"
+                                    number={card2Progress}
+                                    icon={<WatchIcon fontSize="large" />}
+                                />
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={3}
+                                color={theme.palette.primary.main}>
+                                <AboutItem
+                                    text="Awards Won"
+                                    number={card3Progress}
+                                    icon={<EmojiEventsIcon fontSize="large" />}
+                                />
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={3}
+                                color={theme.palette.primary.main}>
+                                <AboutItem
+                                    text="Sleepless Nights"
+                                    number={card4Progress}
+                                    icon={<HotelIcon fontSize="large" />}
                                 />
                             </Grid>
                         </Grid>

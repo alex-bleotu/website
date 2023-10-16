@@ -3,7 +3,15 @@ import { grey } from "@mui/material/colors";
 import { useContext } from "react";
 import { ThemeContext } from "../context/themeContext";
 
-const Line = ({ width, color }: { width: string; color?: string }) => {
+const Line = ({
+    width,
+    color,
+    margin = true,
+}: {
+    width: string;
+    color?: string;
+    margin?: boolean;
+}) => {
     const { mode } = useContext(ThemeContext);
 
     return (
@@ -11,8 +19,8 @@ const Line = ({ width, color }: { width: string; color?: string }) => {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            mb={8}
-            mt={4}>
+            mb={margin ? 8 : 0}
+            mt={margin ? 4 : 0}>
             <Box
                 borderRadius={5}
                 height={2}
