@@ -42,10 +42,11 @@ export const ThemeButtonText = () => {
                 changeTheme();
             }}
             sx={{
+                minWidth: 130,
                 fontWeight: 600,
                 borderRadius: 20,
                 px: 2.5,
-                py: 1,
+                py: 1.5,
                 my: 1,
                 transition: "transform 0.3s, box-shadow 0.3s",
                 "&:hover": {
@@ -54,27 +55,35 @@ export const ThemeButtonText = () => {
                 },
             }}>
             <Box width="100%" display="flex" fontSize={"1rem"}>
-                <Box ml="auto" display="flex" alignItems={"center"}>
-                    <Box mr={1} position="relative">
+                <Box
+                    ml="auto"
+                    display="flex"
+                    flexDirection="row"
+                    alignItems="center"
+                    position="relative"
+                    justifyContent="center">
+                    <Box mr={1}>
                         {theme.palette.mode === "dark" ? (
                             <Brightness7Icon
                                 sx={{
                                     position: "absolute",
-                                    bottom: -11.5,
-                                    right: 0,
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    right: 65,
                                 }}
                             />
                         ) : (
                             <Brightness4Icon
                                 sx={{
                                     position: "absolute",
-                                    bottom: -11.5,
-                                    right: 0,
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    right: 65,
                                 }}
                             />
                         )}
                     </Box>
-                    Theme
+                    <Box>Theme</Box>
                 </Box>
             </Box>
         </Button>

@@ -2,12 +2,12 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { Box, Button, Paper, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import MenuButton from "./menuButton";
-import { ThemeButton } from "./themeButton";
+import { ThemeButtonText } from "./themeButton";
 
 const NavBar = ({ action }: { action: any }) => {
-    const isLargeScreen = useMediaQuery("(min-width:900px)");
-    const isMediumScreen = useMediaQuery("(max-width:900px)");
-    const isSmallScreen = useMediaQuery("(max-width:450px)");
+    const isLargeScreen = useMediaQuery("(min-width:995px)");
+    const isMediumScreen = useMediaQuery("(max-width:995px)");
+    const isSmallScreen = useMediaQuery("(max-width:580px)");
 
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -93,9 +93,9 @@ const NavBar = ({ action }: { action: any }) => {
                             </Box>
                         )}
 
+                        {!isSmallScreen && <ThemeButtonText />}
                         {isLargeScreen && (
                             <>
-                                <ThemeButton />
                                 <Button
                                     color="inherit"
                                     onClick={() => {
@@ -106,6 +106,7 @@ const NavBar = ({ action }: { action: any }) => {
                                         borderRadius: 20,
                                         px: 2.5,
                                         py: 1.5,
+                                        fontSize: "1rem",
                                         transition:
                                             "transform 0.3s, box-shadow 0.3s",
                                         "&:hover": {
@@ -125,6 +126,7 @@ const NavBar = ({ action }: { action: any }) => {
                                         px: 2.5,
                                         py: 1.5,
                                         mx: 1,
+                                        fontSize: "1rem",
                                         transition:
                                             "transform 0.3s, box-shadow 0.3s",
                                         "&:hover": {
@@ -147,6 +149,7 @@ const NavBar = ({ action }: { action: any }) => {
                                         px: 2.5,
                                         py: 1.5,
                                         mr: 1,
+                                        fontSize: "1rem",
                                         transition:
                                             "transform 0.3s, box-shadow 0.3s",
                                         "&:hover": {

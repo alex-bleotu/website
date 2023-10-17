@@ -11,9 +11,10 @@ import {
     Typography,
     useTheme,
 } from "@mui/material";
+import Line from "./line";
 import { ThemeButtonText } from "./themeButton";
 
-const Sidebar = ({
+const SideBar = ({
     state,
     onOpen,
     onClose,
@@ -43,7 +44,6 @@ const Sidebar = ({
             disableDiscovery={iOS}
             PaperProps={{
                 style: {
-                    // backgroundColor: theme.palette.background.default,
                     borderTopLeftRadius: 20,
                     borderBottomLeftRadius: 20,
                 },
@@ -56,7 +56,7 @@ const Sidebar = ({
                 display="flex"
                 flexDirection="column"
                 pt={5}
-                pr={3}
+                pr={2.5}
                 pl={5}
                 pb={3}
                 height="100%">
@@ -69,6 +69,7 @@ const Sidebar = ({
                     fontSize={"1.6rem"}>
                     <span style={{ fontWeight: 600 }}>Alex</span> Bleotu
                 </Typography>
+                <Line width="100%" margin={false} />
                 <Button
                     color="inherit"
                     onClick={() => {
@@ -81,6 +82,7 @@ const Sidebar = ({
                         borderRadius: 20,
                         px: 2.5,
                         py: 1,
+                        mt: 2,
                         transition: "transform 0.3s, box-shadow 0.3s",
                         "&:hover": {
                             transform: "scale(1.01) translateY(-2px)",
@@ -131,6 +133,9 @@ const Sidebar = ({
                         <Box ml="auto">Contact</Box>
                     </Box>
                 </Button>
+                <Box my={1}>
+                    <Line width="100%" margin={false} />
+                </Box>
                 <ThemeButtonText />
                 <Button
                     variant="outlined"
@@ -247,4 +252,4 @@ const Sidebar = ({
     );
 };
 
-export default Sidebar;
+export default SideBar;

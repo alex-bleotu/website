@@ -3,7 +3,7 @@ import { useState } from "react";
 import Footbar from "../../components/footbar";
 import Line from "../../components/line";
 import NavBar from "../../components/navbar";
-import Sidebar from "../../components/sidebar";
+import SideBar from "../../components/sidebar";
 import About from "./about";
 import Contact from "./contact";
 import Description from "./description";
@@ -18,7 +18,7 @@ const Home = () => {
         <Box bgcolor={theme.palette.background.default} height="200%">
             <NavBar action={() => setOpen(true)} />
 
-            <Sidebar
+            <SideBar
                 state={open}
                 onOpen={() => setOpen(true)}
                 onClose={() => setOpen(false)}
