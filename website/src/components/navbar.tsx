@@ -2,9 +2,9 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { Box, Button, Paper, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import MenuButton from "./menuButton";
-import ThemeButton from "./themeButton";
+import { ThemeButton } from "./themeButton";
 
-const NavBar = () => {
+const NavBar = ({ action }: { action: any }) => {
     const isLargeScreen = useMediaQuery("(min-width:900px)");
     const isMediumScreen = useMediaQuery("(max-width:900px)");
     const isSmallScreen = useMediaQuery("(max-width:450px)");
@@ -50,7 +50,7 @@ const NavBar = () => {
                         borderTopLeftRadius: !isSmallScreen ? 45 : 0,
                         borderTopRightRadius: !isSmallScreen ? 45 : 0,
                         py: !isSmallScreen ? 1 : 2,
-                        px: !isSmallScreen ? 1 : 2,
+                        px: !isSmallScreen ? 1 : 2.5,
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
@@ -82,20 +82,17 @@ const NavBar = () => {
                         <Typography
                             color="inherit"
                             fontFamily="revert"
-                            fontSize={isMediumScreen ? "1.4rem" : "1.25rem"}
-                            fontWeight={600}
-                            mr={1}>
-                            Alex
-                        </Typography>
-                        <Typography
-                            color="inherit"
-                            fontFamily="revert"
-                            fontSize={isMediumScreen ? "1.4rem" : "1.25rem"}>
-                            Bleotu
+                            fontSize={isMediumScreen ? "1.4rem" : "1.3rem"}>
+                            <span style={{ fontWeight: 600 }}>Alex</span> Bleotu
                         </Typography>
                     </Button>
                     <Box ml="auto">
-                        {isSmallScreen && <MenuButton />}
+                        {isSmallScreen && (
+                            <Box mr={-1}>
+                                <MenuButton action={action} />
+                            </Box>
+                        )}
+
                         {isLargeScreen && (
                             <>
                                 <ThemeButton />

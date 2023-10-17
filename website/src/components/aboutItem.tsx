@@ -38,7 +38,8 @@ const AboutItem = ({
                         boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
                     },
                 }}
-                py={1.5}
+                pt={1.5}
+                pb={2}
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"

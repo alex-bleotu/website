@@ -41,14 +41,8 @@ const Description = () => {
                         <Box display="flex">
                             <Typography
                                 fontSize="3rem"
-                                fontWeight="600"
-                                color={theme.palette.text.primary}
-                                mr={2}>
-                                Alex
-                            </Typography>
-                            <Typography
-                                fontSize="3rem"
                                 color={theme.palette.text.primary}>
+                                <span style={{ fontWeight: 600 }}>Alex</span>{" "}
                                 Bleotu
                             </Typography>
                         </Box>
@@ -140,6 +134,7 @@ const Description = () => {
                         display="flex"
                         flexDirection="column"
                         justifyContent="center"
+                        mt={-4}
                         p={5}>
                         <Box display="flex">
                             <Typography

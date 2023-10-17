@@ -1,30 +1,32 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 
-const MenuButton = () => {
+const MenuButton = ({ action }: { action: any }) => {
     const theme = useTheme();
 
     return (
-        <Box display="flex" flexDirection="column" alignItems="flex-end" mx={1}>
-            <Box
-                borderRadius={20}
-                width={35}
-                height={4}
-                bgcolor={theme.palette.text.primary}
-            />
-            <Box
-                borderRadius={20}
-                width={25}
-                height={4}
-                my={0.8}
-                bgcolor={theme.palette.text.primary}
-            />
-            <Box
-                borderRadius={20}
-                width={15}
-                height={4}
-                bgcolor={theme.palette.text.primary}
-            />
-        </Box>
+        <Button onClick={action} sx={{ borderRadius: 50 }}>
+            <Box display="flex" flexDirection="column" alignItems="flex-end">
+                <Box
+                    borderRadius={20}
+                    width={35}
+                    height={4}
+                    bgcolor={theme.palette.text.primary}
+                />
+                <Box
+                    borderRadius={20}
+                    width={25}
+                    height={4}
+                    my={0.8}
+                    bgcolor={theme.palette.text.primary}
+                />
+                <Box
+                    borderRadius={20}
+                    width={15}
+                    height={4}
+                    bgcolor={theme.palette.text.primary}
+                />
+            </Box>
+        </Button>
     );
 };
 
