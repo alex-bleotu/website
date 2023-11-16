@@ -7,10 +7,23 @@ import {
     useTheme,
 } from "@mui/material";
 import { Typewriter } from "react-simple-typewriter";
+import Logo from "../../components/logo";
 
 const Description = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery("(max-width:725px)");
+
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        const scroll =
+            section?.offsetTop === undefined
+                ? 0
+                : section?.offsetTop - (isSmallScreen ? 100 : 140);
+        window.scrollTo({
+            top: scroll,
+            behavior: "smooth",
+        });
+    };
 
     return (
         <Box
@@ -94,6 +107,7 @@ const Description = () => {
                             <Button
                                 variant="outlined"
                                 color="primary"
+                                onClick={() => scrollToSection("contact")}
                                 sx={{
                                     borderRadius: 15,
                                     fontWeight: 600,
@@ -137,18 +151,7 @@ const Description = () => {
                         mt={-4}
                         p={5}>
                         <Box display="flex">
-                            <Typography
-                                fontSize="2.5rem"
-                                fontWeight="600"
-                                color={theme.palette.text.primary}
-                                mr={2}>
-                                Alex
-                            </Typography>
-                            <Typography
-                                fontSize="2.5rem"
-                                color={theme.palette.text.primary}>
-                                Bleotu
-                            </Typography>
+                            <Logo size={2.5} />
                         </Box>
                         <Box display="flex" mt={1} alignItems="center">
                             <Typography
@@ -198,6 +201,7 @@ const Description = () => {
                             <Button
                                 variant="outlined"
                                 color="primary"
+                                onClick={() => scrollToSection("contact")}
                                 sx={{
                                     borderRadius: 15,
                                     fontWeight: 600,

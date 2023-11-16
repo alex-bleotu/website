@@ -7,6 +7,7 @@ import SideBar from "../../components/sidebar";
 import About from "./about";
 import Contact from "./contact";
 import Description from "./description";
+import Portofolio from "./portofolio";
 
 const Home = () => {
     const theme = useTheme();
@@ -33,6 +34,12 @@ const Home = () => {
 
                 <section id="about">
                     <About />
+                </section>
+
+                <Line width={isSmallScreen ? "80%" : "80%"} />
+
+                <section id="portofolio">
+                    <Portofolio />
                 </section>
 
                 <Line width={isSmallScreen ? "80%" : "80%"} />

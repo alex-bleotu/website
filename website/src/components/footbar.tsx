@@ -12,6 +12,7 @@ import {
     useTheme,
 } from "@mui/material";
 import Line from "./line";
+import Logo from "./logo";
 
 const Footbar = () => {
     const theme = useTheme();
@@ -47,10 +48,7 @@ const Footbar = () => {
                             md={12}
                             display="flex"
                             justifyContent="center">
-                            <Typography fontSize="1.5rem">
-                                <span style={{ fontWeight: "600" }}>Alex</span>{" "}
-                                Bleotu
-                            </Typography>
+                            <Logo size={1.5} />
                         </Grid>
                         <Grid
                             item

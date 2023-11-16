@@ -32,7 +32,7 @@ export const ThemeButton = () => {
 };
 
 export const ThemeButtonText = () => {
-    const { changeTheme } = useContext(ThemeContext);
+    const { changeTheme, mode } = useContext(ThemeContext);
     const theme = useTheme();
 
     return (
@@ -83,7 +83,7 @@ export const ThemeButtonText = () => {
                             />
                         )}
                     </Box>
-                    <Box>Theme</Box>
+                    <Box>{mode === "dark" ? "Light" : "Dark"}</Box>
                 </Box>
             </Box>
         </Button>

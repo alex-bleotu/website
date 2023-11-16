@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { useContext } from "react";
+import Logo from "../../components/logo";
 import { ThemeContext } from "../../context/themeContext";
 
 const Contact = () => {
@@ -138,11 +139,7 @@ const Contact = () => {
                             },
                         }}
                         flexDirection="column">
-                        <Typography
-                            fontSize="1.5rem"
-                            color={theme.palette.text.primary}>
-                            <span style={{ fontWeight: 600 }}>Alex</span> Bleotu
-                        </Typography>
+                        <Logo size={1.5} />
                         <Typography
                             fontSize="1rem"
                             fontWeight={600}

@@ -1,6 +1,7 @@
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import { Box, Button, Paper, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Paper, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
+import Logo from "./logo";
 import MenuButton from "./menuButton";
 import { ThemeButtonText } from "./themeButton";
 
@@ -79,12 +80,7 @@ const NavBar = ({ action }: { action: any }) => {
                                 boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
                             },
                         }}>
-                        <Typography
-                            color="inherit"
-                            fontFamily="revert"
-                            fontSize={isMediumScreen ? "1.4rem" : "1.3rem"}>
-                            <span style={{ fontWeight: 600 }}>Alex</span> Bleotu
-                        </Typography>
+                        <Logo size={isMediumScreen ? 1.4 : 1.5} />
                     </Button>
                     <Box ml="auto">
                         {isSmallScreen && (
@@ -120,6 +116,9 @@ const NavBar = ({ action }: { action: any }) => {
                                 </Button>
                                 <Button
                                     color="inherit"
+                                    onClick={() => {
+                                        scrollToSection("portofolio");
+                                    }}
                                     sx={{
                                         fontWeight: 600,
                                         borderRadius: 20,

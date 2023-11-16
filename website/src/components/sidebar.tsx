@@ -95,6 +95,10 @@ const SideBar = ({
                 </Button>
                 <Button
                     color="inherit"
+                    onClick={() => {
+                        scrollToSection("portofolio");
+                        onClose();
+                    }}
                     sx={{
                         fontWeight: 600,
                         borderRadius: 20,
