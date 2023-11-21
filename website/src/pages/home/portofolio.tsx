@@ -1,5 +1,8 @@
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import PortofolioItem from "../../components/portofolioItem";
+import { FarmCheckBack, FarmCheckFront } from "./portofolio/farmcheck";
+import { ParkFlowBack, ParkFlowFront } from "./portofolio/parkflow";
+import { WasteWiseBack, WasteWiseFront } from "./portofolio/wastewise";
 
 const Portofolio = () => {
     const theme = useTheme();
@@ -33,9 +36,11 @@ const Portofolio = () => {
             </Box>
             <Grid
                 container
+                display="flex"
+                justifyContent="center"
                 width={
                     isSmallScreen
-                        ? "90%"
+                        ? "100%"
                         : isMediumScreen
                         ? isSemiMediumScreen
                             ? "100%"
@@ -43,23 +48,44 @@ const Portofolio = () => {
                         : "80%"
                 }
                 mt={2}>
-                <Grid item xs={12} sm={6} lg={4} p={5}>
-                    <PortofolioItem />
+                <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={4}
+                    p={5}
+                    display="flex"
+                    justifyContent="center">
+                    <PortofolioItem>
+                        <ParkFlowFront />
+                        <ParkFlowBack />
+                    </PortofolioItem>
                 </Grid>
-                <Grid item xs={12} sm={6} lg={4} p={5}>
-                    <PortofolioItem />
+                <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={4}
+                    p={5}
+                    display="flex"
+                    justifyContent="center">
+                    <PortofolioItem>
+                        <FarmCheckFront />
+                        <FarmCheckBack />
+                    </PortofolioItem>
                 </Grid>
-                <Grid item xs={12} sm={6} lg={4} p={5}>
-                    <PortofolioItem />
-                </Grid>
-                <Grid item xs={12} sm={6} lg={4} p={5}>
-                    <PortofolioItem />
-                </Grid>
-                <Grid item xs={12} sm={6} lg={4} p={5}>
-                    <PortofolioItem />
-                </Grid>
-                <Grid item xs={12} sm={6} lg={4} p={5}>
-                    <PortofolioItem />
+                <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={4}
+                    p={5}
+                    display="flex"
+                    justifyContent="center">
+                    <PortofolioItem>
+                        <WasteWiseFront />
+                        <WasteWiseBack />
+                    </PortofolioItem>
                 </Grid>
             </Grid>
         </Box>

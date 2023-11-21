@@ -20,8 +20,8 @@ const SideBar = ({
     onClose,
 }: {
     state: boolean;
-    onOpen: any;
-    onClose: any;
+    onOpen: () => void;
+    onClose: () => void;
 }) => {
     const iOS =
         typeof navigator !== "undefined" &&

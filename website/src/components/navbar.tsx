@@ -5,7 +5,7 @@ import Logo from "./logo";
 import MenuButton from "./menuButton";
 import { ThemeButtonText } from "./themeButton";
 
-const NavBar = ({ action }: { action: any }) => {
+const NavBar = ({ action }: { action: () => void }) => {
     const isLargeScreen = useMediaQuery("(min-width:995px)");
     const isMediumScreen = useMediaQuery("(max-width:995px)");
     const isSmallScreen = useMediaQuery("(max-width:580px)");
@@ -40,8 +40,8 @@ const NavBar = ({ action }: { action: any }) => {
     return (
         <Box position="fixed" width="100%" zIndex={5} top={0}>
             <Box
-                px={!isSmallScreen ? (isMediumScreen ? 2 : 4) : 0}
-                pt={!isSmallScreen ? (isMediumScreen ? 2 : 4) : 0}
+                px={!isSmallScreen ? (isMediumScreen ? 1.5 : 3) : 0}
+                pt={!isSmallScreen ? (isMediumScreen ? 2 : 3.5) : 0}
                 bgcolor="background.default"
                 sx={{ transition: "padding 0.4s ease" }}>
                 <Paper
@@ -51,7 +51,7 @@ const NavBar = ({ action }: { action: any }) => {
                         borderTopLeftRadius: !isSmallScreen ? 45 : 0,
                         borderTopRightRadius: !isSmallScreen ? 45 : 0,
                         py: !isSmallScreen ? 1 : 2,
-                        px: !isSmallScreen ? 1 : 2.5,
+                        px: !isSmallScreen ? 1.5 : 2.5,
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",

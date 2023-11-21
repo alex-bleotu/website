@@ -293,7 +293,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Projects Completed"
-                                    number={11}
+                                    number={26}
                                     icon={<FactCheckIcon fontSize="large" />}
                                 />
                             </Grid>
@@ -305,7 +305,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Worked Hours"
-                                    number={425}
+                                    number={965}
                                     icon={<WatchIcon fontSize="large" />}
                                 />
                             </Grid>
@@ -317,7 +317,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Awards Won"
-                                    number={5}
+                                    number={7}
                                     icon={<EmojiEventsIcon fontSize="large" />}
                                 />
                             </Grid>
@@ -329,7 +329,7 @@ const About = () => {
                                 color={theme.palette.primary.main}>
                                 <AboutItem
                                     text="Sleepless Nights"
-                                    number={47}
+                                    number={137}
                                     icon={<HotelIcon fontSize="large" />}
                                 />
                             </Grid>

@@ -11,7 +11,7 @@ const AboutItem = ({
 }: {
     text: string;
     number: number;
-    icon: any;
+    icon: JSX.Element;
 }) => {
     const theme = useTheme();
     const { mode } = useContext(ThemeContext);

@@ -1,10 +1,16 @@
-import { Box, Button, useTheme } from "@mui/material";
+import { Box, Button, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
-const PortofolioItem = () => {
+const PortofolioItem = ({
+    children,
+}: {
+    children: [React.ReactElement, React.ReactElement];
+}) => {
     const theme = useTheme();
     const [isFlipped, setIsFlipped] = useState(false);
+
+    const isSmallScreen = useMediaQuery("(max-width:580px)");
 
     return (
         <Box
@@ -12,6 +18,7 @@ const PortofolioItem = () => {
             justifyContent="center"
             alignItems="center"
             height="100%"
+            maxWidth={350}
             width="100%">
             <ReactCardFlip
                 isFlipped={isFlipped}
@@ -28,14 +35,13 @@ const PortofolioItem = () => {
                         p: 0,
                         borderRadius: 10,
                         width: "100%",
-                        height: "auto",
                         aspectRatio: "0.75",
                         maxWidth: 600,
                         maxHeight: 800,
                     }}>
                     <Box
                         bgcolor={theme.palette.background.paper}
-                        height="99%"
+                        height="100%"
                         width="100%"
                         borderRadius={10}
                         sx={{
@@ -46,7 +52,7 @@ const PortofolioItem = () => {
                                 boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",
                             },
                         }}>
-                        Front
+                        {children[0]}
                     </Box>
                 </Button>
                 <Button
@@ -73,7 +79,7 @@ const PortofolioItem = () => {
                                 boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",
                             },
                         }}>
-                        Back
+                        {children[1]}
                     </Box>
                 </Button>
             </ReactCardFlip>

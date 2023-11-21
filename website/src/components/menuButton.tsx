@@ -1,6 +1,6 @@
 import { Box, Button, useTheme } from "@mui/material";
 
-const MenuButton = ({ action }: { action: any }) => {
+const MenuButton = ({ action }: { action: () => void }) => {
     const theme = useTheme();
 
     return (
