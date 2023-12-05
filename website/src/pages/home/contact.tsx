@@ -12,7 +12,7 @@ import {
     useTheme,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
-import { useContext, useRef, useState } from "react";
+import { createRef, useContext, useState } from "react";
 import Logo from "../../components/logo";
 import Message from "../../components/message";
 import { ThemeContext } from "../../style/themeContext";
@@ -33,7 +33,7 @@ const Contact = () => {
     const [show, setShow] = useState(false);
     const [state, setState] = useState<AlertColor>();
 
-    const form = useRef();
+    const form = createRef<HTMLFormElement>();
 
     const verify = () => {
         if (name === "" || email === "" || message === "") return false;
@@ -48,6 +48,7 @@ const Contact = () => {
         setIsLoading(true);
 
         emailjs
+            //@ts-ignore
             .sendForm("gmail", "template", form.current, "W7BkGOwN7ytjAPawR")
             .then(
                 () => {
@@ -96,8 +97,8 @@ const Contact = () => {
                         style={{
                             display: "flex",
                             flexDirection: "column",
-                        }}
-                        p={5}>
+                            padding: 5,
+                        }}>
                         <TextField
                             required
                             id="outline-required"
