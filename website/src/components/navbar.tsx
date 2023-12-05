@@ -6,8 +6,8 @@ import MenuButton from "./menuButton";
 import { ThemeButtonText } from "./themeButton";
 
 const NavBar = ({ action }: { action: () => void }) => {
-    const isLargeScreen = useMediaQuery("(min-width:995px)");
-    const isMediumScreen = useMediaQuery("(max-width:995px)");
+    const isLargeScreen = useMediaQuery("(min-width:1015px)");
+    const isMediumScreen = useMediaQuery("(max-width:1015px)");
     const isSmallScreen = useMediaQuery("(max-width:580px)");
 
     const [isScrolled, setIsScrolled] = useState(false);
@@ -100,6 +100,7 @@ const NavBar = ({ action }: { action: () => void }) => {
                                     sx={{
                                         fontWeight: 600,
                                         borderRadius: 20,
+                                        ml: 1,
                                         px: 2.5,
                                         py: 1.5,
                                         fontSize: "1rem",

@@ -35,14 +35,17 @@ const getDesignTokens = (mode: "dark" | "light") => ({
             background: {
                 default: "#f6f6f6",
                 paper: "#eaeaea",
+                // light grey
                 semi: hexToRGBA("#f6f6f6", 0.5),
+                scrollBar: "#000000",
             },
         }),
         ...(mode === "dark" && {
             background: {
-                default: "#212121",
-                paper: "#323232",
+                default: "#191b1c",
+                paper: "#262829",
                 semi: hexToRGBA("#212121", 0.5),
+                scrollBar: "#2c2c2c",
             },
         }),
     },

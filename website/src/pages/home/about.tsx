@@ -281,59 +281,70 @@ const About = () => {
                             color={theme.palette.text.primary}>
                             Fun Facts
                         </Typography>
-                        <Grid
-                            container
-                            width={isSmallScreen ? "100%" : "101%"}
-                            ml={isSmallScreen ? 0 : -2}>
+                        <Box
+                            display="flex"
+                            flexDirection="column"
+                            alignItems="center"
+                            justifyContent="center"
+                            width="100%">
                             <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={3}
-                                color={theme.palette.primary.main}>
-                                <AboutItem
-                                    text="Projects Completed"
-                                    number={26}
-                                    icon={<FactCheckIcon fontSize="large" />}
-                                />
+                                container
+                                width={isSmallScreen ? "95%" : "100%"}
+                                ml={isSmallScreen ? 0 : -2}>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={3}
+                                    color={theme.palette.primary.main}>
+                                    <AboutItem
+                                        text="Projects Completed"
+                                        number={26}
+                                        icon={
+                                            <FactCheckIcon fontSize="large" />
+                                        }
+                                    />
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={3}
+                                    color={theme.palette.primary.main}>
+                                    <AboutItem
+                                        text="Worked Hours"
+                                        number={965}
+                                        icon={<WatchIcon fontSize="large" />}
+                                    />
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={3}
+                                    color={theme.palette.primary.main}>
+                                    <AboutItem
+                                        text="Awards Won"
+                                        number={7}
+                                        icon={
+                                            <EmojiEventsIcon fontSize="large" />
+                                        }
+                                    />
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={3}
+                                    color={theme.palette.primary.main}>
+                                    <AboutItem
+                                        text="Sleepless Nights"
+                                        number={137}
+                                        icon={<HotelIcon fontSize="large" />}
+                                    />
+                                </Grid>
                             </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={3}
-                                color={theme.palette.primary.main}>
-                                <AboutItem
-                                    text="Worked Hours"
-                                    number={965}
-                                    icon={<WatchIcon fontSize="large" />}
-                                />
-                            </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={3}
-                                color={theme.palette.primary.main}>
-                                <AboutItem
-                                    text="Awards Won"
-                                    number={7}
-                                    icon={<EmojiEventsIcon fontSize="large" />}
-                                />
-                            </Grid>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={3}
-                                color={theme.palette.primary.main}>
-                                <AboutItem
-                                    text="Sleepless Nights"
-                                    number={137}
-                                    icon={<HotelIcon fontSize="large" />}
-                                />
-                            </Grid>
-                        </Grid>
+                        </Box>
                     </Grid>
                 </Grid>
             </Box>

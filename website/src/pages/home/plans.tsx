@@ -1,10 +1,7 @@
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import PortofolioItem from "../../components/portofolioItem";
-import { FarmCheckBack, FarmCheckFront } from "./portofolio/farmcheck";
-import { ParkFlowBack, ParkFlowFront } from "./portofolio/parkflow";
-import { WasteWiseBack, WasteWiseFront } from "./portofolio/wastewise";
+import PlansItem from "../../components/plansItem";
 
-const Portofolio = () => {
+const Plans = () => {
     const theme = useTheme();
 
     const isLargeScreen = useMediaQuery("(max-width:1500px)");
@@ -31,7 +28,7 @@ const Portofolio = () => {
                     fontWeight="600"
                     color={theme.palette.text.primary}
                     mr={2}>
-                    Portofolio
+                    Price Plans
                 </Typography>
             </Box>
             <Grid
@@ -55,10 +52,7 @@ const Portofolio = () => {
                     p={isSmallScreen ? 4 : isLargeScreen ? 3 : 5}
                     display="flex"
                     justifyContent="center">
-                    <PortofolioItem>
-                        <ParkFlowFront />
-                        <ParkFlowBack />
-                    </PortofolioItem>
+                    <PlansItem />
                 </Grid>
                 <Grid
                     item
@@ -67,10 +61,7 @@ const Portofolio = () => {
                     p={isSmallScreen ? 4 : isLargeScreen ? 3 : 5}
                     display="flex"
                     justifyContent="center">
-                    <PortofolioItem>
-                        <FarmCheckFront />
-                        <FarmCheckBack />
-                    </PortofolioItem>
+                    <PlansItem />
                 </Grid>
                 <Grid
                     item
@@ -79,14 +70,11 @@ const Portofolio = () => {
                     p={isSmallScreen ? 4 : isLargeScreen ? 3 : 5}
                     display="flex"
                     justifyContent="center">
-                    <PortofolioItem>
-                        <WasteWiseFront />
-                        <WasteWiseBack />
-                    </PortofolioItem>
+                    <PlansItem />
                 </Grid>
             </Grid>
         </Box>
     );
 };
 
-export default Portofolio;
+export default Plans;

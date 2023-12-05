@@ -11,7 +11,7 @@ import {
 import { grey } from "@mui/material/colors";
 import { useContext } from "react";
 import Logo from "../../components/logo";
-import { ThemeContext } from "../../context/themeContext";
+import { ThemeContext } from "../../style/themeContext";
 
 const Contact = () => {
     const theme = useTheme();

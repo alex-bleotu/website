@@ -1,4 +1,4 @@
-import { Box, Button, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
@@ -9,8 +9,6 @@ const PortofolioItem = ({
 }) => {
     const theme = useTheme();
     const [isFlipped, setIsFlipped] = useState(false);
-
-    const isSmallScreen = useMediaQuery("(max-width:580px)");
 
     return (
         <Box
@@ -30,7 +28,10 @@ const PortofolioItem = ({
                     maxHeight: 800,
                 }}>
                 <Button
-                    onClick={() => setIsFlipped(true)}
+                    onClick={() => {
+                        setIsFlipped(true);
+                    }}
+                    disableRipple
                     sx={{
                         p: 0,
                         borderRadius: 10,
@@ -56,7 +57,10 @@ const PortofolioItem = ({
                     </Box>
                 </Button>
                 <Button
-                    onClick={() => setIsFlipped(false)}
+                    onClick={() => {
+                        setIsFlipped(false);
+                    }}
+                    disableRipple
                     sx={{
                         p: 0,
                         borderRadius: 10,
@@ -68,7 +72,7 @@ const PortofolioItem = ({
                     }}>
                     <Box
                         bgcolor={theme.palette.background.paper}
-                        height="99%"
+                        height="100%"
                         width="100%"
                         borderRadius={10}
                         sx={{

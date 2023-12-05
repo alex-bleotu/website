@@ -2,7 +2,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { Box, Button, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
-import { ThemeContext } from "../context/themeContext";
+import { ThemeContext } from "../style/themeContext";
 
 export const ThemeButton = () => {
     const theme = useTheme();

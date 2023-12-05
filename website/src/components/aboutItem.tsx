@@ -2,7 +2,7 @@ import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { useContext } from "react";
 import CountUp from "react-countup";
-import { ThemeContext } from "../context/themeContext";
+import { ThemeContext } from "../style/themeContext";
 
 const AboutItem = ({
     text,

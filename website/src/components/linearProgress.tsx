@@ -64,7 +64,7 @@ const LinearProgress = ({
                 xs={3.5}
                 sm={3}
                 lg={4.5}
-                xl={3.2}
+                xl={3.5}
                 display="flex"
                 justifyContent={"center"}>
                 <Box>
@@ -87,14 +87,11 @@ const LinearProgress = ({
                 </Box>
             </Grid>
             <ReactVisibilitySensor partialVisibility>
-                {({
-                    // @ts-ignore
-                    isVisible,
-                }) => {
+                {({ isVisible }: { isVisible: boolean }) => {
                     if (isVisible) setStart(true);
 
                     return (
-                        <Grid item xs={8.5} sm={9} lg={7.5} xl={8.8} mt={1}>
+                        <Grid item xs={8.5} sm={9} lg={7.5} xl={8.5} mt={1}>
                             <Typography
                                 fontSize={isSmallScreen ? "1rem" : "1.2rem"}
                                 fontWeight={600}

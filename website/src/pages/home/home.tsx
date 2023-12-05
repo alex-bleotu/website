@@ -16,7 +16,7 @@ const Home = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <Box bgcolor={theme.palette.background.default} height="200%">
+        <Box bgcolor={theme.palette.background.default}>
             <NavBar action={() => setOpen(true)} />
 
             <SideBar
@@ -41,6 +41,12 @@ const Home = () => {
                 <section id="portofolio">
                     <Portofolio />
                 </section>
+
+                {/* <Line width={isSmallScreen ? "80%" : "80%"} />
+
+                <section id="plans">
+                    <Plans />
+                </section> */}
 
                 <Line width={isSmallScreen ? "80%" : "80%"} />
 
