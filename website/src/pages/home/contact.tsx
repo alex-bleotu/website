@@ -1,7 +1,10 @@
-import SendIcon from "@mui/icons-material/Send";
+import emailjs from "@emailjs/browser";
+import Send from "@mui/icons-material/Send";
+import LoadingButton from "@mui/lab/LoadingButton";
 import {
+    AlertColor,
     Box,
-    Button,
+    CircularProgress,
     Grid,
     TextField,
     Typography,
@@ -9,8 +12,9 @@ import {
     useTheme,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import Logo from "../../components/logo";
+import Message from "../../components/message";
 import { ThemeContext } from "../../style/themeContext";
 
 const Contact = () => {
@@ -20,6 +24,44 @@ const Contact = () => {
     const isSmallScreen = useMediaQuery("(max-width:450px)");
     const isMediumScreen = useMediaQuery("(max-width:900px)");
     const isLargeScreen = useMediaQuery("(min-width:1200px)");
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [show, setShow] = useState(false);
+    const [state, setState] = useState<AlertColor>();
+
+    const form = useRef();
+
+    const verify = () => {
+        if (name === "" || email === "" || message === "") return false;
+        return true;
+    };
+
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+
+        if (form.current === undefined) return;
+
+        setIsLoading(true);
+
+        emailjs
+            .sendForm("gmail", "template", form.current, "W7BkGOwN7ytjAPawR")
+            .then(
+                () => {
+                    setIsLoading(false);
+                    setState("success");
+                    setShow(true);
+                },
+                () => {
+                    setIsLoading(false);
+                    setState("error");
+                    setShow(true);
+                }
+            );
+    };
 
     return (
         <Box
@@ -47,71 +89,103 @@ const Contact = () => {
             <Grid
                 container
                 width={isSmallScreen ? "100%" : isMediumScreen ? "90%" : "80%"}
-                mt={2}>
-                <Grid
-                    item
-                    xs={12}
-                    lg={6}
-                    display="flex"
-                    flexDirection="column"
-                    p={5}>
-                    <TextField
-                        required
-                        id="outline-required"
-                        label="Full Name"
-                        defaultValue=""
-                        variant="outlined"
-                        // InputLabelProps={{ sx: { fontWeight: 600 } }}
-                        InputProps={{ sx: { borderRadius: 10 } }}
-                    />
-                    <TextField
-                        required
-                        id="outline-required"
-                        label="Email Address"
-                        defaultValue=""
-                        variant="outlined"
-                        sx={{ my: 3 }}
-                        // InputLabelProps={{
-                        //     sx: { fontWeight: 600 },
-                        // }}
-                        InputProps={{ sx: { borderRadius: 10 } }}
-                    />
-                    <TextField
-                        required
-                        id="outline-required"
-                        label="Message"
-                        defaultValue=""
-                        variant="outlined"
-                        // InputLabelProps={{ sx: { fontWeight: 600 } }}
-                        InputProps={{ sx: { borderRadius: 5 } }}
-                        multiline
-                        rows={5}
-                    />
-                    <Button
-                        variant="outlined"
-                        color="primary"
-                        sx={{
-                            borderRadius: 15,
-                            fontWeight: 600,
-                            borderWidth: 2,
-                            width: isSmallScreen ? "100%" : 200,
-                            transition: "transform 0.3s, box-shadow 0.3s",
-                            "&:hover": {
-                                height: 51.5,
-                                borderRadius: "2px solid",
-                                transform: "scale(1.01) translateY(-2px)",
-                                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-                            },
-                            px: 2,
-                            py: 1.5,
-                            mt: 3,
-                        }}>
-                        Send Message
-                        <SendIcon
-                            fontSize="medium"
-                            sx={{ ml: 1.5, mt: -0.2 }}
+                mt={5}>
+                <Grid item xs={12} lg={6} px={5} pb={5}>
+                    <form
+                        ref={form}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                        }}
+                        p={5}>
+                        <TextField
+                            required
+                            id="outline-required"
+                            name="user_name"
+                            label="Full Name"
+                            defaultValue=""
+                            variant="outlined"
+                            onChange={(e) => setName(e.target.value)}
+                            InputProps={{ sx: { borderRadius: 10 } }}
                         />
-                    </Button>
+                        <TextField
+                            required
+                            id="outline-required"
+                            label="Email Address"
+                            name="user_email"
+                            defaultValue=""
+                            variant="outlined"
+                            sx={{ my: 3 }}
+                            onChange={(e) => setEmail(e.target.value)}
+                            InputProps={{ sx: { borderRadius: 10 } }}
+                        />
+                        <TextField
+                            required
+                            id="outline-required"
+                            label="Message"
+                            name="message"
+                            defaultValue=""
+                            variant="outlined"
+                            onChange={(e) => setMessage(e.target.value)}
+                            InputProps={{ sx: { borderRadius: 5 } }}
+                            multiline
+                            rows={5}
+                        />
+                        {show && (
+                            <Message
+                                variant={state}
+                                message={
+                                    state === "success"
+                                        ? "Message sent successfully!"
+                                        : "Message failed to send!"
+                                }
+                                setShow={setShow}
+                            />
+                        )}
+                        <LoadingButton
+                            variant="outlined"
+                            color="primary"
+                            type="submit"
+                            onClick={sendEmail}
+                            loading={isLoading}
+                            loadingPosition="end"
+                            disabled={!verify() || show}
+                            endIcon={
+                                <Send
+                                    fontSize="medium"
+                                    sx={{ ml: 1.5, mt: -0.2 }}
+                                />
+                            }
+                            loadingIndicator={
+                                <CircularProgress
+                                    color="inherit"
+                                    size="1rem"
+                                    sx={{ marginRight: 1 }}
+                                />
+                            }
+                            sx={{
+                                borderRadius: 15,
+                                fontWeight: 600,
+                                borderWidth: 2,
+                                width: 200,
+                                transition: "transform 0.3s, box-shadow 0.3s",
+                                "&.Mui-disabled": {
+                                    borderWidth: 2,
+                                },
+                                "&:hover": {
+                                    height: 51.5,
+                                    borderRadius: "2px solid",
+                                    transform: "scale(1.01) translateY(-2px)",
+                                    boxShadow:
+                                        "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                                },
+                                px: 2,
+                                py: 1.5,
+                                mt: 3,
+                            }}>
+                            Send Message
+                        </LoadingButton>
+                    </form>
                 </Grid>
                 <Grid
                     item
@@ -119,8 +193,7 @@ const Contact = () => {
                     lg={6}
                     display="flex"
                     flexDirection="column"
-                    px={5}
-                    pt={isSmallScreen ? 0 : 5}>
+                    px={5}>
                     <Box
                         p={!isSmallScreen ? 4 : isExtraSmallScreen ? 2.5 : 3}
                         borderRadius={10}
