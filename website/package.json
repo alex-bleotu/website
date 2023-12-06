@@ -1,4 +1,5 @@
 {
+    "homepage": "https://alex-bleotu.github.io/website",
     "name": "website",
     "private": true,
     "version": "0.0.0",
@@ -11,7 +12,6 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
-    "homepage": "https://alex-bleotu.github.io/website",
     "dependencies": {
         "@emailjs/browser": "^3.11.0",
         "@emotion/react": "^11.11.1",
