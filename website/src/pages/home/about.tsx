@@ -21,6 +21,13 @@ const About = () => {
     const isMediumScreen = useMediaQuery("(max-width:1050px)");
     const isLargeScreen = useMediaQuery("(min-width:1200px)");
 
+    const daysDifference: number = Math.round(
+        (new Date().getTime() - new Date("2023-01-01").getTime()) /
+            (1000 * 3600 * 24)
+    );
+
+    const workedHours = daysDifference * 3;
+
     return (
         <Box
             height="100%"
@@ -222,7 +229,7 @@ const About = () => {
                             My Skills
                         </Typography>
 
-                        <Grid container>
+                        <Grid container ml={isSmallScreen ? -2 : 0}>
                             <Grid item xs={12} lg={6}>
                                 <LinearProgress
                                     icon="react"
@@ -299,7 +306,7 @@ const About = () => {
                                     color={theme.palette.primary.main}>
                                     <AboutItem
                                         text="Projects Completed"
-                                        number={26}
+                                        number={12}
                                         icon={
                                             <FactCheckIcon fontSize="large" />
                                         }
@@ -313,7 +320,7 @@ const About = () => {
                                     color={theme.palette.primary.main}>
                                     <AboutItem
                                         text="Worked Hours"
-                                        number={965}
+                                        number={workedHours}
                                         icon={<WatchIcon fontSize="large" />}
                                     />
                                 </Grid>
@@ -339,7 +346,7 @@ const About = () => {
                                     color={theme.palette.primary.main}>
                                     <AboutItem
                                         text="Sleepless Nights"
-                                        number={137}
+                                        number={35}
                                         icon={<HotelIcon fontSize="large" />}
                                     />
                                 </Grid>
