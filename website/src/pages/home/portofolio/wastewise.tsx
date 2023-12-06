@@ -6,8 +6,6 @@ import {
     People,
     Web,
 } from "@mui/icons-material";
-import Favorite from "@mui/icons-material/Favorite";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import {
     Box,
     Button,
@@ -17,7 +15,6 @@ import {
     useMediaQuery,
     useTheme,
 } from "@mui/material";
-import { useState } from "react";
 
 export const WasteWiseFront = () => {
     return (
@@ -40,7 +37,7 @@ export const WasteWiseBack = () => {
     const theme = useTheme();
     const isMediumScreen = useMediaQuery("(max-width:800px)");
     const isSmallScreen = useMediaQuery("(max-width:350px)");
-    const [isLiked, setIsLiked] = useState(false);
+    // const [isLiked, setIsLiked] = useState(false);
 
     return (
         <Box height="100%">
@@ -56,7 +53,7 @@ export const WasteWiseBack = () => {
                 <Grid container width={"86%"}>
                     <Grid
                         item
-                        xs={6}
+                        xs={8}
                         display="flex"
                         justifyContent="flex-start">
                         <Button
@@ -141,7 +138,7 @@ export const WasteWiseBack = () => {
                             <Facebook fontSize="medium" />
                         </IconButton>
                     </Grid>
-                    <Grid item xs={2}>
+                    {/* <Grid item xs={2}>
                         <IconButton
                             size="small"
                             sx={{
@@ -164,17 +161,19 @@ export const WasteWiseBack = () => {
                                 <FavoriteBorder fontSize="medium" />
                             )}
                         </IconButton>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Box>
             <Box
                 overflow="scroll"
                 height={isSmallScreen ? "55%" : "64%"}
                 mt={2.5}
-                mx={1}
-                style={{
-                    overflowX: "hidden",
-                }}>
+                mx={2}
+                style={
+                    {
+                        // overflowX: "hidden",
+                    }
+                }>
                 <Box
                     px={isMediumScreen ? 2 : 3}
                     fontSize={isMediumScreen ? "0.85rem" : "1rem"}

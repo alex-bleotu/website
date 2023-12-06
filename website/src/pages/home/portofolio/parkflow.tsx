@@ -1,7 +1,5 @@
 import { AccessTime, BookOnline, Payment } from "@mui/icons-material";
 import Facebook from "@mui/icons-material/Facebook";
-import Favorite from "@mui/icons-material/Favorite";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import GitHub from "@mui/icons-material/GitHub";
 import Instagram from "@mui/icons-material/Instagram";
 import Map from "@mui/icons-material/Map";
@@ -14,7 +12,6 @@ import {
     useMediaQuery,
     useTheme,
 } from "@mui/material";
-import { useState } from "react";
 
 export const ParkFlowFront = () => {
     return (
@@ -36,7 +33,7 @@ export const ParkFlowBack = () => {
     const theme = useTheme();
     const isMediumScreen = useMediaQuery("(max-width:800px)");
     const isSmallScreen = useMediaQuery("(max-width:350px)");
-    const [isLiked, setIsLiked] = useState(false);
+    // const [isLiked, setIsLiked] = useState(false);
 
     return (
         <Box height="100%">
@@ -52,7 +49,7 @@ export const ParkFlowBack = () => {
                 <Grid container width={"86%"}>
                     <Grid
                         item
-                        xs={6}
+                        xs={8}
                         display="flex"
                         justifyContent="flex-start">
                         <Button
@@ -137,7 +134,7 @@ export const ParkFlowBack = () => {
                             <Facebook fontSize="medium" />
                         </IconButton>
                     </Grid>
-                    <Grid item xs={2}>
+                    {/* <Grid item xs={2}>
                         <IconButton
                             size="small"
                             sx={{
@@ -160,14 +157,14 @@ export const ParkFlowBack = () => {
                                 <FavoriteBorder fontSize="medium" />
                             )}
                         </IconButton>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Box>
             <Box
                 overflow="scroll"
                 height={isSmallScreen ? "55%" : "64%"}
                 mt={2.5}
-                mx={1}
+                mx={2}
                 style={{
                     overflowX: "hidden",
                 }}>

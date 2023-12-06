@@ -34,8 +34,8 @@ const Description = () => {
             alignItems="center"
             position="relative">
             {!isSmallScreen && (
-                <Box display="flex" height="100%" zIndex={0} width="100%">
-                    <Box
+                <Box display="flex" height="100%" zIndex={0} width="80%">
+                    {/* <Box
                         component="img"
                         src="./me.png"
                         mr={10}
@@ -44,9 +44,9 @@ const Description = () => {
                         height="80%"
                         mt={15}
                         sx={{ opacity: 0.5 }}
-                    />
+                    /> */}
                     <Box
-                        maxWidth={550}
+                        maxWidth={700}
                         display="flex"
                         flexDirection="column"
                         justifyContent="center"
