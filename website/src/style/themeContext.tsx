@@ -61,15 +61,10 @@ const ThemeProvider = ({ children }: any) => {
 
     useEffect(() => {
         const localTheme = localStorage.getItem("theme");
-        if (localTheme === null) {
-            window
-                .matchMedia("(prefers-color-scheme: dark)")
-                .addEventListener("change", (event) => {
-                    const colorScheme = event.matches ? "dark" : "light";
-                    localStorage.setItem("theme", colorScheme);
-                    setMode(colorScheme);
-                });
-        } else localTheme && setMode(localTheme as "light" | "dark");
+        if (localTheme === null || localTheme === undefined) {
+            localStorage.setItem("theme", "dark");
+            setMode("dark");
+        } else setMode(localTheme as "light" | "dark");
     }, []);
 
     const changeTheme = () => {

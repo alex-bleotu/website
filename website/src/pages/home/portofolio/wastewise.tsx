@@ -63,7 +63,7 @@ export const WasteWiseBack = () => {
                             onClick={(event) => {
                                 event.stopPropagation();
                                 window.open(
-                                    "https://wastewise.github.io/wastewise/",
+                                    "https://wastewise.alexbleotu.com/",
                                     "_blank"
                                 );
                             }}
